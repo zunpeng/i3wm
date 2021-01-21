@@ -62,10 +62,14 @@ exec --no-startup-id picom
 # 开机启动输入法
 exec --no-startup-id fcitx
 
+#============================================================
 #screen
-exec_always sleep 1; $HOME/.screenlayout/screen-config-1.sh
+# 此处配置需要延时加载,有时延时加载也会出现问题，关闭此处，开机后手动配置即可
+# exec_always sleep 1; $HOME/.screenlayout/screen-config-1.sh
 # polybar 要在扩展显示器加载之后再加载polybar
-exec_always sleep 2; $HOME/.config/polybar/launch.sh
+# exec_always sleep 2; $HOME/.config/polybar/launch.sh
+# exec_always sleep 2; $HOME/scrpits/x-config.sh
+#============================================================
 
 
 ################################################################################################
@@ -449,14 +453,16 @@ set_from_resource $term_color15    color15
 #    workspace_buttons no
 #    #workspace_min_width 40
 #}
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-client.focused          #556064 #556064 #80FFF9 #FDF6E3
+# default
+# client.focused          #556064 #556064 #80FFF9 #FDF6E3
+client.focused          #556064 #556064 #80FFF9 #556064
+# client.focused          #556064 #CAA9FA #80FFF9 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -469,21 +475,20 @@ client.background       #2B2C2B
 #############################
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 2
+gaps inner 7
+gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
 # gaps outer all plus 5
 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 # Smart gaps (gaps used if only more than one container on the workspace)
 # 放开下面的注释，在只有一个窗口时会把四周的边框隐藏掉
 # smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
