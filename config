@@ -464,7 +464,7 @@ bindsym $mod+m bar mode toggle
 # class                   border  backgr. text    indic.   child_border
 # default
 # client.focused          #556064 #556064 #80FFF9 #FDF6E3
-client.focused          #556064 #556064 #80FFF9 #556064
+client.focused          #750000 #750000 #80FFF9 #750000
 # client.focused          #556064 #CAA9FA #80FFF9 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
@@ -478,7 +478,7 @@ client.background       #2B2C2B
 #############################
 
 # Set inner/outer gaps
-gaps inner 7
+gaps inner 8
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
